@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{>headerlinks}}
+</head>
+
+<body>
+    <!-- header menu -->
+    {{>navbar}}
+    <!-- center Page -->
+    <div class="container-fluid main_header">
+        <div class="row">
+            <div class="col-md-10 col-12 mx-auto">
+                <div class="main_content">
+                    <form class="temp_form">
+                        <input type="text" id="city_name_search" placeholder="Enter your City Name" autocomplete="off">
+                        <button type="submit" id="sumbit_btn">Search</button>
+                        {{!-- <input type="sumbit" value="Search" id="sumbit_btn"> --}}
+                    </form>
+                </div>
+                <div class="tempinformation">
+                    <div class="top_layer">
+                        <p id="Day">Staurday</p>
+                        <p id="T_date">12 Jan</p>
+                    </div>
+                    <div class="main_layer">
+                        <p id="city_name_output">Get OutPut</p>
+                        <div class="middle_layer data_hide">
+                            <p id="temp">10<sup>o</sup><span>C</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer -->
+    {{>footer}}
+
+    <script src="js/index.js"></script>
+    <script>
+        const getcurrentday = () => {
+            var weekday = new Array(7);
+            weekday[0] = "SUN"
+            weekday[1] = "MON"
+            weekday[2] = "TUE"
+            weekday[3] = "WED"
+            weekday[4] = "THU"
+            weekday[5] = "FRI"
+            weekday[6] = "SAT"
+
+            let currentday = new Date();
+            let days = (weekday[currentday.getDay()]);
+            let day = document.getElementById('Day');
+            day.innerText = days;
+        };
+        getcurrentday()
+
+        const getcurrenttime = () => {
+            var monthName = new Array(12);
+            monthName[0] = "Junaury"
+            monthName[1] = "Feburay"
+            monthName[2] = "March"
+            monthName[3] = "April"
+            monthName[4] = "May"
+            monthName[5] = "June"
+            monthName[6] = "July"
+            monthName[7] = "August"
+            monthName[8] = "September"
+            monthName[9] = "October"
+            monthName[10] = "NOV"
+            monthName[11] = "December"
+
+            var currenttime = new Date();
+            var month = currenttime.getMonth();
+            var date = currenttime.getDate();
+
+            let T_date = document.getElementById('T_date')
+            T_date.innerText = `${date},${monthName[month]}`;
+        }
+            getcurrenttime();
+    </script>
+    <!-- poppor js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></scrript >
+                <!-- javascript -->
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></scrpt>
+</body>
+</html>
